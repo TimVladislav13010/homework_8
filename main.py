@@ -85,20 +85,10 @@ def get_birthdays_per_week(users):  # функція для пошуку кол�
 
         if birthday_month in month and birthday_day in day:
             week_day = day_of_week(day_birthday)
-            if week_day in "Monday":
-                monday_list.append(user.get("name"))
-            if week_day in "Tuesday":
-                tuesday_list.append(user.get("name"))
-            if week_day in "Wednesday":
-                wednesday_list.append(user.get("name"))
-            if week_day in "Thursday":
-                thursday_list.append(user.get("name"))
-            if week_day in "Friday":
-                friday_list.append(user.get("name"))
-            if week_day in "Saturday":
-                saturday_list.append(user.get("name"))
-            if week_day in "Sunday":
-                sunday_list.append(user.get("name"))
+
+            if week_day in result.keys():
+                lists = result[week_day]
+                lists.append(user.get("name"))
 
         if not isleap(date_time.year):  # перевірка поточного року якщо не високосний заходимо в середину
 
@@ -112,20 +102,9 @@ def get_birthdays_per_week(users):  # функція для пошуку кол�
                     date_time_1_march = datetime(year=date_time.year, month=3, day=1)
                     week_day_1_march = day_of_week(date_time_1_march)
 
-                    if week_day_1_march in "Monday":
-                        monday_list.append(user.get("name") + " - " + "birthday 29 february")
-                    if week_day_1_march in "Tuesday":
-                        tuesday_list.append(user.get("name") + " - " + "birthday 29 february")
-                    if week_day_1_march in "Wednesday":
-                        wednesday_list.append(user.get("name") + " - " + "birthday 29 february")
-                    if week_day_1_march in "Thursday":
-                        thursday_list.append(user.get("name") + " - " + "birthday 29 february")
-                    if week_day_1_march in "Friday":
-                        friday_list.append(user.get("name") + " - " + "birthday 29 february")
-                    if week_day_1_march in "Saturday":
-                        saturday_list.append(user.get("name") + " - " + "birthday 29 february")
-                    if week_day_1_march in "Sunday":
-                        sunday_list.append(user.get("name") + " - " + "birthday 29 february")
+                    if week_day_1_march in result.keys():
+                        lists = result[week_day_1_march]
+                        lists.append(user.get("name") + " - " + "birthday 29 february")
 
     return result
 
