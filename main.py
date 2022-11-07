@@ -111,9 +111,19 @@ def get_birthdays_per_week(users):  # функція для пошуку кол�
 
 def print_result(dict_birthday: dict):  # функція для виведення результату
     for key, val in dict_birthday.items():
+        
         if len(val) != 0:
-            list_name = ", ".join(val)
-            print(f"{key}: {list_name}")
+            if key in "Saturday":
+                list_name = ", ".join(val)
+                print(f"To congratulate in Monday: {list_name}. Birthday people {key}.")
+
+            elif key in "Sunday":
+                list_name = ", ".join(val)
+                print(f"To congratulate in Monday: {list_name}. Birthday people {key}.")
+            
+            else: 
+                list_name = ", ".join(val)
+                print(f"{key}: {list_name}")
 
 
 if __name__ == "__main__":
